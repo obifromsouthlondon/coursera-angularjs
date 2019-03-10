@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- our angular app is responsible for the whole dom - BOUND -->
+<html lang="en-US" ng-app="MyFirstAngularApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="./angular.min.js" charset="utf-8"></script>
+    <script src="./app.js" charset="utf-8"></script>
+    <title>My First AngularJS App</title>
+  </head>
+  <body>
+    <h1>My First AngularJS App</h1>
+    <!-- everything within  div is controlled by MyFirstController-->
+    <div ng-controller="MyFirstController">
+      <!-- framework assumes this is to be looked for on scope -->
+      My name is {{name}}
+      <br>
+      {{sayHello()}}
+      <br>
+      <input type="text" ng-model="name"> inside $scope.name is {{name}}
+    </div>
+  </body>
+</html>

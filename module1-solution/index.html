@@ -8,11 +8,11 @@
   </head>
   <body>
     <div ng-controller="LunchCheckController">
-      <input ng-model="itemsForLunch"> <button ng-click="checkIfTooMuch();">Check If Too Much</button>
+      <input ng-model="itemsForLunch" ng-style="style"> <button ng-click="checkIfTooMuch();">Check If Too Much</button>
       <br><br>
       empty item is not considered, i.e., , , as an item towards the count.
       <br><br>
-      <div>
+      <div ng-style="colour">
         {{message}}
       </div>
     </div>

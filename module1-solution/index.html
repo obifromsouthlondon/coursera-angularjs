@@ -3,18 +3,18 @@
   <head>
     <script src="angular.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>LunchCheck</title>
   </head>
   <body>
     <div ng-controller="LunchCheckController">
-      <input ng-model="itemsForLunch" ng-style="style"> <button ng-click="checkIfTooMuch();">Check If Too Much</button>
-      <br><br>
+      <input ng-model="itemsForLunch" ng-style="style" />
+      <button ng-click="checkIfTooMuch();">Check If Too Much</button>
+      <br /><br />
       empty item is not considered, i.e., , , as an item towards the count.
-      <br><br>
-      <div ng-style="colour">
-        {{message}}
-      </div>
+      <br /><br />
+      <div ng-style="fontColour">{{message}}</div>
     </div>
+    <button type="button" name="button" onclick="myAlert()">Hey!</button>
   </body>
 </html>

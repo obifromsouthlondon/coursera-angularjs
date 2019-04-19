@@ -1,11 +1,26 @@
 {
-  "ecmaVersion": 8,
-  "libs": [],
-  "loadEagerly": [],
+  "ecmaVersion": 5,
+  "loadEagerly": [
+    
+  ],
   "dontLoad": [
     "node_modules/**"
   ],
   "plugins": {
-    "doc_comment": true
-  }
+    "doc_comment": {
+      
+    },
+    "guess-types": {
+      
+    },
+    "outline": {
+      
+    },
+    "angular1": {
+      
+    }
+  },
+  "libs": [
+    "browser"
+  ]
 }

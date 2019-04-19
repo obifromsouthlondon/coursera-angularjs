@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MsgApp">
+  <head>
+    <script src="./angular.min.js" charset="utf-8"></script>
+    <script src="./app.js" charset="utf-8"></script>
+    <style media="screen">
+      body {
+        font-size: 1.2em;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <title>Expressions and Interpolation</title>
+  </head>
+  <body>
+    <div class="" ng-controller="MsgController">
+      nb: a cookie costs {{cookieCost | currency: "GBP£" : 4}} <br />
+      {{sayMessage()}} <br />
+      Filtered - {{sayMessage() | truth : 'HUNGER' : 'starvation' | lowercase}}
+      <div class="">
+        <button ng-click="feedObi()">Feed Obi</button> <br />
+        <img ng-src="./images/obi_{{stateOfBeing}}.png" />
+      </div>
+    </div>
+  </body>
+</html>

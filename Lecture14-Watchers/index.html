@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="CounterApp">
+  <head>
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <meta charset="utf-8" />
+    <title>Lecture 14 - Watchers (and AngularJS)</title>
+  </head>
+  <body>
+    <h1>Lecture 14</h1>
+    <div ng-controller="CounterController">
+      <button
+        value="showNumberOfWatchers()"
+        type="button"
+        ng-click="showNumberOfWatchers()"
+      >
+        showNumberOfWatchers()
+      </button>
+      <button ng-click="countOnce()">count once</button>
+      <button ng-click="upCounter()">up counter</button>
+      <div>
+        Once Counter : {{ onceCounter }} <br />Regular Counter : {{ counter }}
+        <br />Another Once Counter : {{ onceCounter }}
+      </div>
+      <input ng-model="userName" />
+    </div>
+  </body>
+</html>

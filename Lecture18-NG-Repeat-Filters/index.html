@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+  <head>
+    <meta charset="utf-8" />
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <script src="filter.js" charset="utf-8"></script>
+    <title>Binding App</title>
+  </head>
+  <body>
+    <h1>NG Repeat</h1>
+    <div ng-controller="AppController">
+      <!-- two way binding -->
+      search term: <input ng-model="search" /><br /><br />
+      change quantity: <input ng-model="ShoppingList[0].quantity" />
+      <ul>
+        <!-- filters on name and quantity properties -->
+        <li ng-repeat="item in ShoppingList | filter : search">{{ item }}</li>
+      </ul>
+    </div>
+  </body>
+</html>

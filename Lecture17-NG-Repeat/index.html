@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+  <head>
+    <meta charset="utf-8" />
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <title>Binding App</title>
+  </head>
+  <body>
+    <div ng-controller="AppController">
+      <h3>Shopping List 1 (strings)</h3>
+      <ul>
+        <li ng-repeat="item in ShoppingList1">{{item}}</li>
+      </ul>
+      <p></p>
+      <h3>Shopping List 2 (objects)</h3>
+      <ul>
+        <li ng-repeat="item in ShoppingList2">
+          <!-- double curly sets up watchers -->
+          {{$index + 1}}. <strong>name</strong> = {{item.name}},
+          <strong>quantity</strong> = {{item.quantity}}
+        </li>
+      </ul>
+      update quantity of Bread:
+      <input ng-model="ShoppingList2[0].quantity" /><br /><br />
+      Add to list:<br />
+      <input ng-model="newItemName" placeholder="Item Name" /><br />
+      <input ng-model="newItemQuantity" placeholder="Item Quantity" /><br />
+      <button ng-click="addToList()">Add To List</button>
+    </div>
+  </body>
+</html>

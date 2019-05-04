@@ -1,0 +1,8 @@
+<h3>{{ list.title }}</h3>
+<ol>
+  <li ng-repeat="item in list.items">
+    <list-item-description></list-item-description>
+    <button ng-click="list.dirRemoveItem({indexArg:$index})" name="test">Remove</button>
+  </li>
+</ol>
+<div class="error">warning!!! cookies detected</div>

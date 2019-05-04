@@ -14,7 +14,7 @@
     $scope.showNumberOfWatchers = function() {
       console.log("# of watchers: ", $scope.$$watchersCount);
     };
-    var appController = this;
+    var ctrl = this;
     /* CONTROLLER CODE GOES HERE */
   }
 

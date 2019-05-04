@@ -1,0 +1,27 @@
+{
+  "name": "coursera-angularjs",
+  "version": "1.0.0",
+  "description": "coursera-angularjs, by Yakoov",
+  "main": "index.js",
+  "dependencies": {
+    "Angular1": "^0.1.16",
+    "tern-angular1": "file:../tern-angular1",
+    "tern-guess-types": "^0.10.0",
+    "tern-outline": "^0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obifromsouthlondon/coursera-angularjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obifromsouthlondon/coursera-angularjs/issues"
+  },
+  "homepage": "https://github.com/obifromsouthlondon/coursera-angularjs#readme"
+}

@@ -36,6 +36,7 @@
       var result = { message: itemQuantity + " OK!" };
 
       if (itemQuantity <= 5) {
+        //potentially take a few seconds
         deferred.resolve(result);
       } else {
         result.message = "That's too much!";
@@ -160,10 +161,9 @@
 
   ShoppingListShowController.$inject = [
     "$scope",
-    "$filter",
     "ShoppingListService"
   ];
-  function ShoppingListShowController($scope, $filter, ShoppingListService) {
+  function ShoppingListShowController($scope, ShoppingListService) {
     $scope.showNumberOfWatchers = function() {
       console.log("# of watchers: ", $scope.$$watchersCount);
     };

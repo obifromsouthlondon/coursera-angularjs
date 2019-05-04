@@ -15,6 +15,7 @@
       }
     };
 
+    console.log("Keys: ", Object.keys(parent));
     var child = Object.create(parent);
     console.log("child - child.value: ", child.value);
     console.log("child - child.obj.objValue: ", child.obj.objValue);

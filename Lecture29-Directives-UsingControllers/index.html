@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+  <head>
+    <meta charset="utf-8" />
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Directives With Their Own Controllers</title>
+  </head>
+  <body>
+    <h1>Directives With Their Own Controllers</h1>
+    <div ng-controller="ShoppingListController as list1">
+      <input type="text" ng-model="list1.itemName" placeholder="item name" />
+      <input type="text" ng-model="list1.itemQuantity" placeholder="quantity" />
+      <!-- place item in data structure -->
+      <button type="button" name="button" ng-click="list1.addItem()">
+        Add Item
+      </button>
+      <button ng-click="list1.printToConsole()">list.PrintToConsole</button>
+      <shopping-list items="list1.items" title="{{list1.title}}"></shopping-list>
+    </div>
+  </body>
+</html>

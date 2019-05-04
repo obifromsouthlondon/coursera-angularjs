@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MenuItemsApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Narrow It Down App</title>
+  </head>
+  <body>
+    <div class="" ng-controller="NarrowItDownController as nidCtrlr">
+      <input placeholder="[enter menu item]" ng-model="nidCtrlr.searchString"></input>
+      <button ng-click="nidCtrlr.search();">Narrow It Down For Me!</button>
+      <br>
+      <br>
+      <div ng-if="nidCtrlr.found && nidCtrlr.found.length !== 0">
+        <search-result my-list="nidCtrlr"></search-result>
+      </div>
+      <div ng-if="nidCtrlr.found && nidCtrlr.found.length === 0">
+        Nothing found
+      </div>
+    </div>
+  </body>
+</html>

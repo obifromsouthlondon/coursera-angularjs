@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th>Description</th>
+    <th>Remove</th>
+  </tr>
+  <tr ng-repeat="item in list.found">
+    <td>{{ item.name }}</td>
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.description }}</td>
+    <td><button ng-click="list.remove($index)">Don't want this one!</button></td>
+  </tr>
+</table>

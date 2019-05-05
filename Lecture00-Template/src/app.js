@@ -19,11 +19,12 @@
     return ddo;
   }
 
-  AppController.$inject = ["AppService"];
-  function AppController(AppService) {
+  AppController.$inject = ["Factory_WithFunction"];
+  function AppController(Factory_WithFunction) {
     var appController = this;
+    var appService = Factory_WithFunction();
     appController.callService = function() {
-      return AppService.getName();
+      return appService.getName();
     };
   }
 

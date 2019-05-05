@@ -1,0 +1,11 @@
+body {
+  font-size: 1.2em;
+}
+#list1 {
+  float: left;
+}
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}

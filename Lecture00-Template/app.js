@@ -14,7 +14,7 @@
       scope:{
         appController: "="
       },
-      template: "<b>Directive:</b> {{ appController.callService() }}"
+      template: "<b>Directive:</b> {{ ::appController.callService() }}"
     }
     return ddo;
   }

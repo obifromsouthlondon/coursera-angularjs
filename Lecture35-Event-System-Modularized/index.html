@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListEventApp">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- libraries -->
+    <script src="lib/jquery-3.4.1.js" charset="utf-8"></script>
+    <script src="lib/angular.min.js" charset="utf-8"></script>
+
+    <!-- modules -->
+    <script src="src/shoppinglist/shoppinglist.module.js" charset="utf-8"></script>
+    <script src="src/spinner/spinner.module.js" charset="utf-8"></script>
+
+    <!-- shoppinglist module artifacts -->
+    <script src="src/shoppinglist/shoppinglist.component.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/shoppinglist.controller.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/shoppinglist.factory.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/weightlossfilter.service.js" charset="utf-8"></script>
+
+    <!-- spinner module artifacts -->
+    <script src="src/spinner/spinner.component.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <title>Event System</title>
+  </head>
+  <body>
+    <h1>Event System</h1>
+    <div ng-controller="ShoppingListController as list1">
+      <input type="text" ng-model="list1.itemName" placeholder="item name" />
+      <input type="text" ng-model="list1.itemQuantity" placeholder="quantity" />
+      <!-- place item in data structure -->
+      <button type="button" name="button" ng-click="list1.addItem()">
+        Add Item
+      </button>
+      <button ng-click="list1.printToConsole()">list.PrintToConsole</button>
+      <br>
+      <span ng-if="list1.lastItemRemoved">Last Item Removed: {{ list1.lastItemRemoved }}</span>
+
+      <shopping-list
+        items="list1.items"
+        title="{{list1.title}}"
+        on-remove="list1.removeItem(indexArg)">
+      </shopping-list>
+
+      <!-- kicked off while we check if cookie in list -->
+      <loading-spinner></loading-spinner>
+    </div>
+  </body>
+</html>

@@ -1,60 +1,52 @@
 (function() {
   "use strict";
 
-  var app = angular
+  angular
     .module("App", [])
     .controller("AppController", AppController)
-    .controller("NoScopeController", NoScopeController)
     .service("AppService", AppService)
     .factory("Factory_WithFunction", AppServiceFactory_WithFunction)
-    .factory("Factory_WithObjectLiteral", AppServiceFactory_WithObjectLiteral);
+    .factory("Factory_WithObjectLiteral", AppServiceFactory_WithObjectLiteral)
+    .directive("showInfo", ShowInfoDirective);
 
-  AppController.$inject = ["$scope", "$filter"];
-  function AppController($scope, $filter) {
-    $scope.showNumberOfWatchers = function() {
-      console.log("# of watchers: ", $scope.$$watchersCount);
-    };
-    var ctrl = this;
-    /* CONTROLLER CODE GOES HERE */
+  function ShowInfoDirective(){
+    var ddo = {
+      scope:{
+        appController: "="
+      },
+      template: "<b>Directive:</b> {{ appController.callService() }}"
+    }
+    return ddo;
   }
 
-  NoScopeController.$inject = ["AppService"];
-  function NoScopeController(AppService) {
-    var noScopeController = this;
-    noScopeController.callService = function() {
+  AppController.$inject = ["AppService"];
+  function AppController(AppService) {
+    var appController = this;
+    appController.callService = function() {
       return AppService.getName();
     };
-    /* CONTROLLER CODE GOES HERE */
   }
 
   function AppService() {
     var appService = this;
     appService.getName = function() {
-      return "AppService";
+      return "AppService: " + new Date();
     };
-    /* SERVICE CODE GOES HERE */
   }
 
-  // usage: var service = AppServiceFactory_WithFunction()
   function AppServiceFactory_WithFunction() {
     var factory = function() {
-      // instantiate service and return
       return new AppService();
     };
-    // a Function is returned
     return factory;
   }
 
-  // usage: var service = AppServiceFactory_WithObjectLiteral.getService()
   function AppServiceFactory_WithObjectLiteral() {
     var factory = {
-      // object literal with property that is a method
       getService: function() {
-        // instantiate service and return
         return new AppService();
       }
     };
-    // an Object Literal is returned
     return factory;
   }
 })();

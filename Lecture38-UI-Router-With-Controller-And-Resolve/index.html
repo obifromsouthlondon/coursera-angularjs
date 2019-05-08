@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListEventApp">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- libraries -->
+    <script src="lib/jquery-3.4.1.js" charset="utf-8"></script>
+    <script src="lib/angular.min.js" charset="utf-8"></script>
+    <script src="lib/angular-ui-router.js" charset="utf-8"></script>
+
+    <!-- modules -->
+    <!-- routes -->
+    <script src="src/routes.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/shoppinglist.module.js" charset="utf-8"></script>
+
+    <!-- shoppinglist module artifacts -->
+    <script src="src/shoppinglist/shoppinglist.component.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/main-shoppinglist.controller.js" charset="utf-8"></script>
+    <script src="src/shoppinglist/shoppinglist.factory.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <h1>Welcome to Shopping List</h1>
+    <ui-view></ui-view>
+  </body>
+</html>

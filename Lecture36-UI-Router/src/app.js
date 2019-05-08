@@ -1,53 +1,24 @@
 (function() {
   "use strict";
 
-  angular
-    .module("App", [])
-    .controller("AppController", AppController)
-    .service("AppService", AppService)
-    .factory("Factory_WithFunction", AppServiceFactory_WithFunction)
-    .factory("Factory_WithObjectLiteral", AppServiceFactory_WithObjectLiteral)
-    .directive("showInfo", ShowInfoDirective);
+  angular.module("RoutingApp", ["ui.router"]);
 
-  function ShowInfoDirective(){
-    var ddo = {
-      scope:{
-        appController: "="
-      },
-      template: "<b>Directive:</b> {{ ::appController.callService() }}"
-    }
-    return ddo;
-  }
+  angular.module("RoutingApp")
+  .config(RoutesConfiguration); // configure services
 
-  AppController.$inject = ["Factory_WithFunction"];
-  function AppController(Factory_WithFunction) {
-    var appController = this;
-    var appService = Factory_WithFunction();
-    appController.callService = function() {
-      return appService.getName();
-    };
-  }
+  RoutesConfiguration.$inject = ["$stateProvider","$urlRouterProvider"];
+  function RoutesConfiguration($stateProvider, $urlRouterProvider){
+    // redirect to tab1 is no url matches
+    $urlRouterProvider.otherwise("/tab1");
 
-  function AppService() {
-    var appService = this;
-    appService.getName = function() {
-      return "AppService: " + new Date();
-    };
-  }
-
-  function AppServiceFactory_WithFunction() {
-    var factory = function() {
-      return new AppService();
-    };
-    return factory;
-  }
-
-  function AppServiceFactory_WithObjectLiteral() {
-    var factory = {
-      getService: function() {
-        return new AppService();
-      }
-    };
-    return factory;
+    // set up ui state
+    $stateProvider.state("tab1", {
+      url: "/tab1",
+      templateUrl: "src/tab1.html"
+    })
+    .state("tab2", {
+      url: "/tab2",
+      templateUrl: "src/tab2.html"
+    });
   }
 })();

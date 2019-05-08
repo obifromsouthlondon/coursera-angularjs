@@ -1,0 +1,7 @@
+<ol>
+  <li ng-repeat="item in $ctrl.items" ui-sref="mainList.itemDetail({itemId: $index})">
+    {{ item.quantity }} items of {{ item.name }}
+  </li>
+</ol>
+
+<!-- kicked off while we check if cookie in list -->

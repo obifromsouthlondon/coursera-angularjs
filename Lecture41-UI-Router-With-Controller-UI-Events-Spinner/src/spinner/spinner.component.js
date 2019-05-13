@@ -12,6 +12,7 @@
 
     $ctrl.$onInit = function() {
       console.log("$onInit");
+      
       $transitions.onBefore(
         {
           from: "home",
@@ -19,57 +20,20 @@
         },
         function(){
           $ctrl.showSpinner = true;
-          console.log("Redirecting to mainList");
+          console.log("$transitions.onBefore - set $ctrl.showSpinner to TRUE");
         }
       );
 
-      // Listener - fired everytime this view is visited
-      // root scope is never destroyed till entire app is destroyed
-      var cancel = $rootScope.$on("$stateChangeStart", function(
-        event,
-        toState,
-        fromState,
-        fromParams,
-        options
-      ) {
-        console.log(
-          "$rootScope.$on: event - ",
-          event,
-          "; toState - ",
-          toState,
-          "; fromState - ",
-          fromState,
-          "; fromParams - ",
-          fromParams,
-          "; options - ",
-          options
-        );
-        $ctrl.showSpinner = true;
-      });
-      cancellers.push(cancel);
-      console.log("cancel: ", cancel);
-
-      cancel = $rootScope.$on("$stateChangeSuccess", function(
-        event,
-        toState,
-        fromState,
-        fromParams,
-        options
-      ) {
-        $ctrl.showSpinner = false;
-      });
-      cancellers.push(cancel);
-
-      cancel = $rootScope.$on("$stateChangeError", function(
-        event,
-        toState,
-        fromState,
-        fromParams,
-        options
-      ) {
-        $ctrl.showSpinner = false;
-      });
-      cancellers.push(cancel);
+      $transitions.onSuccess(
+        {
+          from: "home",
+          to: "mainList"
+        },
+        function(){
+          $ctrl.showSpinner = false;
+          console.log("$transitions.onSuccess - set $ctrl.showSpinner to FALSE");
+        }
+      );
     };
 
     // remove listener from memory

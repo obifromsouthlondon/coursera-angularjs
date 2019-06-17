@@ -2,7 +2,7 @@
   "use strict";
   angular
   .module("ShoppingListEventApp")
-  .component("shoppingList", {
+  .component("shoppingList", { //shopping-list
     // in-line configuration object
     templateUrl: "src/shoppinglist/templates/shoppinglist.template.html",
     bindings: {

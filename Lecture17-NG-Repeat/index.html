@@ -7,26 +7,26 @@
     <title>Binding App</title>
   </head>
   <body>
-    <div ng-controller="AppController">
+    <div ng-controller="AppController as ctrl">
       <h3>Shopping List 1 (strings)</h3>
       <ul>
-        <li ng-repeat="item in ShoppingList1">{{item}}</li>
+        <li ng-repeat="item in ctrl.ShoppingList1">{{item}}</li>
       </ul>
       <p></p>
       <h3>Shopping List 2 (objects)</h3>
       <ul>
-        <li ng-repeat="item in ShoppingList2">
+        <li ng-repeat="item in ctrl.ShoppingList2">
           <!-- double curly sets up watchers -->
           {{$index + 1}}. <strong>name</strong> = {{item.name}},
           <strong>quantity</strong> = {{item.quantity}}
         </li>
       </ul>
       update quantity of Bread:
-      <input ng-model="ShoppingList2[0].quantity" /><br /><br />
+      <input ng-model="ctrl.ShoppingList2[0].quantity" /><br /><br />
       Add to list:<br />
-      <input ng-model="newItemName" placeholder="Item Name" /><br />
-      <input ng-model="newItemQuantity" placeholder="Item Quantity" /><br />
-      <button ng-click="addToList()">Add To List</button>
+      <input ng-model="ctrl.newItemName" placeholder="Item Name" /><br />
+      <input ng-model="ctrl.newItemQuantity" placeholder="Item Quantity" /><br />
+      <button ng-click="ctrl.addToList()">Add To List</button>
     </div>
   </body>
 </html>

@@ -5,27 +5,28 @@
     .module("App", [])
     .controller("AppController", AppController);
 
-  AppController.$inject = ["$scope", "$filter"];
-  function AppController($scope, $filter) {
+  AppController.$inject = ["$scope"];
+  function AppController($scope) {
     /* TEMPLATE - START */
     // variables:
-    $scope.appName = "App";
-    $scope.watchersCount = 0;
+    var ctrl = this;
+    ctrl.appName = "App";
+    ctrl.watchersCount = 0;
 
-    $scope.ShoppingList1 = ["bread", "butter", "orange juice", "cake"];
+    ctrl.ShoppingList1 = ["bread", "butter", "orange juice", "cake"];
 
-    $scope.ShoppingList2 = [
+    ctrl.ShoppingList2 = [
       { name: "bread", quantity: 2 },
       { name: "butter", quantity: 2 },
       { name: "orange juice", quantity: 2 },
       { name: "cake", quantity: 2 }
     ];
 
-    $scope.addToList = function() {
+    ctrl.addToList = function() {
       // will use new vars created by ng-model
       var newItem = {
-        name: $scope.newItemName,
-        quantity: $scope.newItemQuantity
+        name: ctrl.newItemName,
+        quantity: ctrl.newItemQuantity
       };
       console.log(
         "item name: ",
@@ -33,13 +34,13 @@
         "item quantity: ",
         newItem.quantity
       );
-      $scope.ShoppingList2.push(newItem);
+      ctrl.ShoppingList2.push(newItem);
     };
 
     // functions - custom:
     $scope.showNumberOfWatchers = function() {
-      console.log("# of watchers: ", $scope.$$watchersCount);
-      $scope.watchersCount = $scope.$$watchersCount;
+      console.log("# of watchers: ", ctrl.$$watchersCount);
+      ctrl.watchersCount = ctrl.$$watchersCount;
     };
 
     // functions - framework:

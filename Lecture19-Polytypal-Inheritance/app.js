@@ -34,11 +34,13 @@
     console.log("parent: ", parent);
     console.log("child: ", child);
 
-    // function is an object itself.  Use Captial letter to denote it's a constructor
-    function Dog(name) {
-      this.name = name;
-      console.log("'this' is: ", this);
-    }
+      // function is an object itself.  Use Captial letter to denote it's a constructor
+      class Dog {
+          constructor(name) {
+              this.name = name;
+              console.log("'this' is: ", this);
+          }
+      }
 
     // as constructor
     var myDog = new Dog("Nkita");

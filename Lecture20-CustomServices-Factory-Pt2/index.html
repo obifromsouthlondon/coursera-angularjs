@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" ng-app="App">
   <head>
     <meta charset="utf-8" />
@@ -23,7 +23,7 @@
           <button ng-click="list1.removeItem($index)">Remove</button>
         </li>
       </ol>
-      <div class="error">Error: {{ list1.errorMessage }}</div>
+      <div class="error" ng-if="list1.errorMessage">Error: {{ list1.errorMessage }}</div>
     </div>
 
     <h1>Shopping List #2 (limited to 3 items)</h1>
@@ -41,7 +41,7 @@
           <button ng-click="list2.removeItem($index)">Remove</button>
         </li>
       </ol>
-      <div class="error">Error: {{ list2.errorMessage }}</div>
+      <div class="error" ng-if="list2.errorMessage">Error: {{ list2.errorMessage }}</div>
     </div>
   </body>
 </html>

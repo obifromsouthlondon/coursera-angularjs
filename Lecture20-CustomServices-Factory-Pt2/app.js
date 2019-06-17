@@ -137,6 +137,6 @@
 
   Config.$inject = ["ShoppingListServiceProvider"];
   function Config(ShoppingListServiceProvider) {
-    ShoppingListServiceProvider.config.prop = "Obi Orjiekwe";
+    ShoppingListServiceProvider.config.prop = 2;
   }
 })();
